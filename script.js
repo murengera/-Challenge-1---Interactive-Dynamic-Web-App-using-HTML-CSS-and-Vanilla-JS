@@ -1,82 +1,47 @@
 let html="";
-const mealList=document.getElementById('meal');
-const mealDetailsContent=document.querySelector('.meal-details-content');
-const recipeCloseBtn=document.getElementById('recipe-close-btn');
+const userList=document.getElementById('user');
+const userDetailsContent=document.querySelector('.user-details-content');
+const userCloseBtn=document.getElementById('user-close-btn');
 // event listners
-//meal details
-mealList.addEventListener('click',getUserDetails);
-recipeCloseBtn.addEventListener('click',()=>{
-    mealDetailsContent.parentElement.classList.remove('showRecipe');
+//user details
+userList.addEventListener('click',getUserDetails);
+userCloseBtn.addEventListener('click',()=>{
+    userDetailsContent.parentElement.classList.remove('showUser');
 })
 
-// get meal list that matches with the ingredients
+// get user list from api
 function getUserList(){
   
    fetch(`https://jsonplaceholder.typicode.com/users`).then(response=>response.json())
    .then(data=>{
    
      if(data){
-         data.forEach(element=> {
+         data.forEach(user=> {
 
              html+=`
-             <div class = "meal-item" data-id="${element.id}">
+             <div class = "user-item" data-id="${user.id}">
              
-             
-            
-             
-             <div class = "meal-name">
-               <h3> ${element.name}</h3>
-               <h3>${element.email}</h3>
-               <a href = "#" class = "recipe-btn">User post</a>
+             <div class = "user-name">
+               <h3> ${user.name}</h3>
+               <h2>${user.email}</h2>
+               <a href = "#" class = "user-btn">User post</a>
              </div>
            </div> `
            ;
          });
      }
-     mealList.innerHTML=html
+     userList.innerHTML=html
    })
 }
 
 
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// function for getting posts of every user
 
 function getUserDetails(e){
     e.preventDefault();
-    if(e.target.classList.contains('recipe-btn')){
-        let mealItem=e.target.parentElement.parentElement;
-        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${mealItem.dataset.id}`)
+    if(e.target.classList.contains('user-btn')){
+        let userItem=e.target.parentElement.parentElement;
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userItem.dataset.id}`)
         .then(response=>{
             if(!response){
                 throw Error("ERROR")
@@ -138,8 +103,8 @@ function getUserDetails(e){
                
                </div>`;
         }).join("");
-          mealDetailsContent.innerHTML=html;
-        mealDetailsContent.parentElement.classList.add('showRecipe')
+          userDetailsContent.innerHTML=html;
+        userDetailsContent.parentElement.classList.add('showUser')
 
 
 
