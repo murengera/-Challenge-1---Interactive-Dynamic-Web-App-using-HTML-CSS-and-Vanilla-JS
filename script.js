@@ -76,7 +76,7 @@ function getUserDetails(e){
     e.preventDefault();
     if(e.target.classList.contains('recipe-btn')){
         let mealItem=e.target.parentElement.parentElement;
-        fetch(`https://jsonplaceholder.typicode.com/posts?userIfhgfdd=${mealItem.dataset.id}`)
+        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${mealItem.dataset.id}`)
         .then(response=>{
             if(!response){
                 throw Error("ERROR")
@@ -86,7 +86,31 @@ function getUserDetails(e){
             console.log(data)
         const html=data
         .map(user=>{
+          
                return `
+
+               <div class = "user-post">
+               
+               <p  id="title1"style="color:black"> title</p>
+               
+               <p  id="title"> ${user.title} </p>
+
+               <p id="body1"> body</p>
+               <span id="body">   ${user.body}</span>
+           
+               </div>
+              
+              
+
+
+
+
+
+
+          
+          
+          
+        
                
             
                
@@ -94,23 +118,22 @@ function getUserDetails(e){
                
                
 
-                 <table>
+                 
   
   
   
-  <tr> 
-  <td> title</td>
-  <td> title</td>
-  <td> title</td>
-  </tr>
   
-  <tr>
+  
+  
+  
+  
 
-    <td> ${user.title}</td>
-    <td>${user.body}</td>
-  </tr>
   
-</table>
+
+    
+    
+
+  
 
                
                </div>`;

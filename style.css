@@ -45,7 +45,7 @@ body{
 
 
 #footer{
-    background-color: #282A35;
+    background-color: #090d23;
     position: relative;
     height: 100px;
     margin-top: -100px;
@@ -58,7 +58,7 @@ body{
 .toolbar{
     overflow: auto;
     padding-bottom: 100px;
-    background-color:#282A35;
+    background-color: #090d23;
     position: relative;;
     color: white;
     text-align: center;
@@ -133,7 +133,8 @@ body{
 .recipe-btn{
     text-decoration: none;
     color: #fff;
-    background-color: #282A35;
+    background-color: #090d23;
+    /* background-color: #282A35; */
     font-weight: 500;
     font-size: 1.1rem;
     padding: 0.75rem 0;
@@ -168,7 +169,8 @@ body{
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     color: #fff;
-    background: var(--tenne-tawny);
+
+   background-color: white;
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
@@ -326,23 +328,6 @@ body{
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-
   #footer p{
     text-align: center;
     line-height: 97px;
@@ -374,14 +359,56 @@ table {
   
 
 
-
+  .user-post >p{
+       color: #ece7e7
+  }  
   
 
 
+#title{
+
+       color: black;
+       font-size: 25px;
+       line-height: 28px;
+
+
+}
+#body{
+    color: black;
+    font-size: 16px;
+    font-family: auto;
+    font-style: italic;
+}
+
 
   
+#title1{
+    color: black;
+    font-size: 25px;
+    font-family: cursive;
+
+}
+#body1{
+    color: black;
+    font-size: 25px;
+    font-family: cursive;
+}
 
 
 
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
