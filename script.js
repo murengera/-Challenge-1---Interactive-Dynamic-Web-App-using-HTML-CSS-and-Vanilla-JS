@@ -4,13 +4,13 @@ const mealDetailsContent=document.querySelector('.meal-details-content');
 const recipeCloseBtn=document.getElementById('recipe-close-btn');
 // event listners
 //meal details
-mealList.addEventListener('click',getMealRecipe);
+mealList.addEventListener('click',getUserDetails);
 recipeCloseBtn.addEventListener('click',()=>{
     mealDetailsContent.parentElement.classList.remove('showRecipe');
 })
 
 // get meal list that matches with the ingredients
-function getMealList(){
+function getUserList(){
   
    fetch(`https://jsonplaceholder.typicode.com/users`).then(response=>response.json())
    .then(data=>{
@@ -20,13 +20,14 @@ function getMealList(){
 
              html+=`
              <div class = "meal-item" data-id="${element.id}">
-             <div class = "meal-img">
-             <img src="user.jpg" alt="${element.name}">
+             
+             
             
-             </div>
+             
              <div class = "meal-name">
-               <h3>${element.name}</h3>
-               <a href = "#" class = "recipe-btn">Get Recipe</a>
+               <h3> ${element.name}</h3>
+               <h3>${element.email}</h3>
+               <a href = "#" class = "recipe-btn">User post</a>
              </div>
            </div> `
            ;
@@ -36,47 +37,13 @@ function getMealList(){
    })
 }
 
-// function getMealRecipe(e){
-    // e.preventDefault();
-    // if(e.target.classList.contains('recipe-btn')){
-        // let mealItem=e.target.parentElement.parentElement;
-        // fetch(`https://jsonplaceholder.typicode.com/posts?userId=${mealItem.dataset.id}`).then(response=>response.json()).then(data=>mealRecipeModal(data));
-// 
-// 
-    // }
-// 
-// 
-// }
-// 
-// function mealRecipeModal(meal){
-    // console.log("data",meal)
-
-    // meal.forEach(element=>{
-        // let html=`
-        // <h2 class = "recipe-title"> title :${element.title}</h2>
-        // 
-        // <div class = "recipe-instruct">
-        //   <h3>userId   ${element.userId}</h3>
-        //   <p> body ${element.body}</p>
-        // 
-        // </div>
-        // `;
-        // mealDetailsContent.innerHTML=html;
-        // mealDetailsContent.parentElement.classList.add('showRecipe')
-    // })
-//   
 
 
-//   
-//   
-//   
-//   
-//   
-//   
-//  
-//  
 
-// }
+
+
+
+    
 
 
 
@@ -100,11 +67,16 @@ function getMealList(){
 
 
 
-function getMealRecipe(e){
+
+
+
+
+
+function getUserDetails(e){
     e.preventDefault();
     if(e.target.classList.contains('recipe-btn')){
         let mealItem=e.target.parentElement.parentElement;
-        fetch(`https://jsonplaceholder.typicode.com/posts?userId=${mealItem.dataset.id}`)
+        fetch(`https://jsonplaceholder.typicode.com/posts?userIfhgfdd=${mealItem.dataset.id}`)
         .then(response=>{
             if(!response){
                 throw Error("ERROR")
@@ -168,4 +140,4 @@ function getMealRecipe(e){
 
 
 
-getMealList();
+getUserList();
